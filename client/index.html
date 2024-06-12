@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        
+        .chat-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chat-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .chat-message {
+            margin-bottom: 20px;
+        }
+        
+        .chat-message audio {
+            width: 100%;
+        }
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        
+        .hidden {
+            visibility: hidden;
+            height: 0;
+        }
+        
+        #loading {
+            width: 2rem;
+            height: 2rem;
+            border: 5px solid #8b5f61;
+            border-top: 6px solid #ebc7be;
+            border-radius: 50%;
+            margin: 20px auto;
+            visibility: hidden;
+            animation: spin 1s infinite linear;
+        }
+        
+        #loading.display {
+            visibility: visible;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .btn-record {
+            width: 30%;
+            padding: 10px 0;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .form-group.hidden label {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Voice Chat</h1>
+        </div>
+        <div id="chatbot" class="center">
+            <div class="form-group">
+                <img src="animation.png" alt="Animation" class="img-fluid" />
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label for="chatgpt-audio">Voice Chat:</label>
+            <audio id="chatgpt-audio" controls></audio>
+        </div>
+        <div id="loading"></div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-record" id="record-button">Start</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mic-recorder-to-mp3@2.2.1/dist/index.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
